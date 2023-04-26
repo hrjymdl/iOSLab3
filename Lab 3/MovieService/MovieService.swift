@@ -9,7 +9,7 @@ import Foundation
 
 class MovieService {
 	func searchMovies(query: String, completion: @escaping (SearchResponse?) -> Void) {
-        print("YAYY!")
+
 		guard let baseURL = URL(string: "https://www.omdbapi.com") else { return }
 
 		var url = baseURL
@@ -22,7 +22,7 @@ class MovieService {
 
 		var urlRequest = URLRequest(url: url)
 		urlRequest.httpMethod = "get"
-        print("hello?")
+
 		let task = URLSession.shared.dataTask(with: urlRequest) { data, response, error in
 			var searchResponse: SearchResponse?
 			defer { completion(searchResponse) }
@@ -33,7 +33,7 @@ class MovieService {
 				  let response = try? JSONDecoder().decode(SearchResponse.self, from: data)
 			else { return }
             
-            print("here!")
+ 
             searchResponse = response
 		}
 		task.resume()

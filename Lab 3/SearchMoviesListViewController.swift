@@ -21,8 +21,7 @@ class SearchMoviesListViewController: UITableViewController {
 
 		title = "Search"
 
-        print("Query string is: ")
-        print(queryString)
+
 		movieService.searchMovies(query: queryString) { [weak self] response in
 			guard let self = self,
                   let response = response
@@ -36,7 +35,7 @@ class SearchMoviesListViewController: UITableViewController {
 
 		}
         print(movieResults)
-        print("BOO!")
+
 	}
 
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
